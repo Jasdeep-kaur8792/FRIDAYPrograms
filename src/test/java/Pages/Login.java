@@ -12,7 +12,7 @@ public class Login {
      WebDriver driver;
 
     By username= By.xpath("//input[@placeholder='Username']");
-    By password= By.xpath("//input[@placeholder='Password']");
+    By passwordInput= By.xpath("//input[@placeholder='Password']");
     By clickOnSubmit= By.xpath("//input[@type='submit']");
 
     public Login(WebDriver driver)
@@ -20,12 +20,14 @@ public class Login {
         this.driver = driver;
     }
 
-    public void logInUserName() {
-        driver.findElement(username).sendKeys("performance_glitch_user");
+    public void logInUserName(String userName,String password) {
+        driver.findElement(username).sendKeys(userName);
+        driver.findElement(passwordInput).sendKeys(password);
+
     }
-        public void logInUserPassword() {
-            driver.findElement(password).sendKeys("secret_sauce");
-        }
+//        public void logInUserPassword() {
+//            driver.findElement(clickOnSubmit).click();
+//        }
     public void logInSubmitButton()
     {
         driver.findElement(clickOnSubmit).click();
